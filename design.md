@@ -96,8 +96,8 @@ The pipeline constructs:
 `expectedFullName = firstName.strip() + " " + lastName.strip()`
 
 This ensures:
-    - Consistent formatting
-    - No trailing/leading spaces
+- Consistent formatting
+- No trailing/leading spaces
 
 - **Merge Raw Payments with Member Info**
 We perform a left join on `memberId`:
@@ -105,8 +105,8 @@ We perform a left join on `memberId`:
 `merged = member_paid.merge(member_info[['memberId', 'expectedFullName']], on='memberId', how='left')`
 
 This enables us to:
-    - Validate existence of memberId
-    - Compare provided name with expected name
+- Validate existence of memberId
+- Compare provided name with expected name
 
 - **Apply Validation Masks**
 
@@ -123,8 +123,8 @@ A record is valid if both masks are True:
 `valid_mask = valid_id_mask & no_conflict_mask`
 
 This produces:
-    - A `valid_rows` DataFrame
-    - An `invalid_rows` DataFrame (for debugging/troubleshooting)
+- A `valid_rows` DataFrame
+- An `invalid_rows` DataFrame (for debugging/troubleshooting)
 
 - **Name Reconstruction**
 
@@ -172,14 +172,14 @@ Why?
 1. **Chose pandas over SQL or Spark**
 
 Because:
-    - Input volume is small
-    - No distributed data processing required
-    - Simple to implement in a Python assignment
+- Input volume is small
+- No distributed data processing required
+- Simple to implement in a Python assignment
 
 2. **Names are normalized for comparison**
 
 Without lowercase + strip normalization:
-    - Leading/trailing spaces cause false errors
+- Leading/trailing spaces cause false errors
 
 Normalization ensures robust validation.
 
@@ -191,9 +191,9 @@ Only missing names are auto-repaired because they are deterministic.
 4. **Flat CSV output over database**
 
 Chosen for simplicity:
-    - Easy to submit
-    - Easy for BI to load
-    - No external dependencies
+- Easy to submit
+- Easy for BI to load
+- No external dependencies
 
 ## Potential Improvements (Production-Level)
 
