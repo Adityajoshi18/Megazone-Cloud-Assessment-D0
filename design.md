@@ -22,7 +22,7 @@ A healthcare company provided two raw CSV files:
     Contains the official list of active members.
 
 2. **memberPaidInfo.csv**
-Contains payment records, which may include:
+    Contains payment records, which may include:
     - Missing names
     - Incorrect names
     - Payment entries for non-existent members
