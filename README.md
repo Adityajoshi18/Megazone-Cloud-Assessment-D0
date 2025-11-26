@@ -82,7 +82,7 @@ All rows in this file are guaranteed to be valid based on business rules.
 
 ## Example Console Output
 
-![Console Output](Sample_Output.png)
+![Console Output](data-engineering/Console_Output.png)
 
 ## Project Structure
 
